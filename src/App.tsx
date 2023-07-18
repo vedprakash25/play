@@ -20,7 +20,11 @@ function App() {
       <div className="border-2 max-w-lg mx-auto w-full">
         {data.map((item) => {
           const { id, title } = item;
-          return <div key={id}>{title}</div>;
+          return (
+            <div key={id}>
+              <h1>{title}</h1>
+            </div>
+          );
         })}
       </div>
     </>
