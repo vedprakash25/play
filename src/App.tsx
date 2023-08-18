@@ -1,11 +1,18 @@
-import JsonServer from "./library/json-server";
+import { BrowserRouter, useRoutes } from "react-router-dom";
+import routes from "./router";
 
-function App() {
+const App = () => {
+  const RoutesRender = () => {
+    const paths = useRoutes(routes());
+    return paths;
+  };
   return (
     <>
-      <JsonServer />
+      <BrowserRouter>
+        <RoutesRender />
+      </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;
