@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Home from "../pages/home";
 import ToDoApp from "../pages/toDoApp";
 import Parallax from "../pages/parallax";
+import AnimatedText from "../pages/animatedText";
 
 function ViewWithHeaderAndFooter() {
   return (
@@ -28,6 +29,10 @@ export default function routes() {
         {
           path: "/parallax",
           element: <Parallax />,
+        },
+        {
+          path: "/animated-text",
+          element: <AnimatedText />,
         },
       ],
     },
