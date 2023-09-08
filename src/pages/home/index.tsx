@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
           return (
             <div
               key={id}
-              className="border border-gray flex flex-col justify-between gap-1 p-6 rounded-xl"
+              className="border border-gray flex flex-col d justify-between gap-1 p-6 rounded-xl"
             >
               <div>
                 <h3 className="text-2xl ">{title}</h3>

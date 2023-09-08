@@ -1,8 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Home from "../pages/home";
-import ToDoApp from "../pages/toDoApp";
-import Parallax from "../pages/parallax";
-import AnimatedText from "../pages/animatedText";
+import { HomePage, Parallax, ToDoApp, AnimatedText } from "../pages";
 
 function ViewWithHeaderAndFooter() {
   return (
@@ -20,7 +17,7 @@ export default function routes() {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <HomePage />,
         },
         {
           path: "/todoapp",
