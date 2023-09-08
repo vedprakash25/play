@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const [data, setData] = useState<any>([]);
+
   const fetchData = async () => {
     try {
       const response = await fetch("http://localhost:8080/api");
@@ -15,6 +16,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    // fetching card data from node backend
     fetchData();
   }, []);
 
@@ -27,14 +29,14 @@ export default function Home() {
           return (
             <div
               key={id}
-              className="border border-gray flex flex-col d justify-between gap-1 p-6 rounded-xl"
+              className="border-2 border-gradient flex flex-col justify-between gap-1 p-6 rounded-xl"
             >
               <div>
                 <h3 className="text-2xl ">{title}</h3>
                 <h4 className="opacity-60 ">{description.slice(0, 100)}...</h4>
               </div>
-              <div className="mt-2">
-                <h3 className="text-xl opacity-60"> {author}</h3>
+              <div className="mt-2 flex justify-between items-end">
+                <h3 className="text-xl opacity-80"> {author}</h3>
                 <Link to="/">Read More</Link>
               </div>
             </div>

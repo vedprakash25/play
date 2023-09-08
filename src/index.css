@@ -21,3 +21,8 @@
 body {
   margin: 0;
 }
+
+.border-gradient {
+  border: 1px solid white;
+  border-image: linear-gradient(120deg, gray, rgba(0, 0, 0, 0.3)) 1;
+}
