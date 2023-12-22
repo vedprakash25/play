@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useQuery } from "react-query";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Query, useQuery } from "react-query";
 
 export default function Home() {
   const [data, setData] = useState<any>([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupData, setPopupData] = useState<any>({});
+
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
@@ -17,16 +19,19 @@ export default function Home() {
       console.error("Error fetching data:", error);
     }
   };
-  const fetchBlog = (id?: number) => {
-    if (!isPopupOpen) {
-      setIsPopupOpen(true);
-      document.body.style.overflow = "hidden";
-      const filtered = data.find((item: any) => item.id === id);
-      console.log(filtered);
-      setPopupData(filtered);
-    } else {
-      setIsPopupOpen(false);
+  const fetchBlog = async (blogQuery: string) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/${blogQuery}`);
+      const jsonData = await response.json();
+      setData(jsonData);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
+  };
+
+  const redirect = (id: number) => {
+    navigate(`blogs/${id}`);
   };
 
   useEffect(() => {
@@ -60,6 +65,9 @@ export default function Home() {
 
                   <button className="opacity-90" onClick={() => fetchBlog(id)}>
                     Read More
+                  </button>
+                  <button className="opacity-90" onClick={() => redirect(id)}>
+                    Redirect
                   </button>
                 </div>
               </div>

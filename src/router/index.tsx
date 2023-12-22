@@ -1,5 +1,12 @@
-import { Outlet } from "react-router-dom";
-import { HomePage, Parallax, ToDoApp, AnimatedText } from "../pages";
+import { useEffect } from "react";
+import { Outlet, useParams } from "react-router-dom";
+import {
+  HomePage,
+  Parallax,
+  ToDoApp,
+  AnimatedText,
+  BlogsDetails,
+} from "../pages";
 
 function ViewWithHeaderAndFooter() {
   return (
@@ -18,6 +25,10 @@ export default function routes() {
         {
           path: "/",
           element: <HomePage />,
+        },
+        {
+          path: "/blogs/:blogId",
+          element: <BlogsDetails />,
         },
         {
           path: "/todoapp",
