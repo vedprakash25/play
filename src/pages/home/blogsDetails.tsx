@@ -26,8 +26,14 @@ export default function BlogsDetails() {
 
   return (
     <div className="max-w-2xl mx-auto grid gap-5 mt-20">
-      BlogsDetails: {BlogID}
-      <ReactMarkdown>{data.description}</ReactMarkdown>
+      {data ? (
+        <div>
+          BlogsDetails: {BlogID}
+          <ReactMarkdown>{data?.description}</ReactMarkdown>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

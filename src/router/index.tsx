@@ -5,7 +5,7 @@ import {
   Parallax,
   ToDoApp,
   AnimatedText,
-  BlogsDetails,
+  // BlogsDetails,
   API,
 } from "../pages";
 
@@ -31,10 +31,10 @@ export default function routes() {
           path: "/api",
           element: <API />,
         },
-        {
-          path: "/blogs/:blogId",
-          element: <BlogsDetails />,
-        },
+        // {
+        //   path: "/blogs/:blogId",
+        //   element: <BlogsDetails />,
+        // },
         {
           path: "/todoapp",
           element: <ToDoApp />,
