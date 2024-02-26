@@ -6,6 +6,7 @@ import {
   ToDoApp,
   AnimatedText,
   BlogsDetails,
+  API,
 } from "../pages";
 
 function ViewWithHeaderAndFooter() {
@@ -25,6 +26,10 @@ export default function routes() {
         {
           path: "/",
           element: <HomePage />,
+        },
+        {
+          path: "/api",
+          element: <API />,
         },
         {
           path: "/blogs/:blogId",
